@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+ 
+int main() {
+    int n, m;
+    cin >> n >> m;
+ 
+    vector<int> puzzles(m);
+    for (int i = 0; i < m; ++i) {
+        cin >> puzzles[i];
+    }
+ 
+    sort(puzzles.begin(), puzzles.end());
+ 
+    int minDifference = puzzles[n-1] - puzzles[0]; // Initialize with the maximum possible difference
+ 
+    for (int i = 1; i <= m - n; ++i) {
+        int currentDifference = puzzles[i+n-1] - puzzles[i];
+        if (currentDifference < minDifference) {
+            minDifference = currentDifference;
+        }
+    }
+    cout << minDifference << endl;
+ 
+}
