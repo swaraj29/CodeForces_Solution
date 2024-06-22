@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 int main() {
     int t;
     cin >> t;
@@ -9,26 +10,17 @@ int main() {
         cin >> n;
         
         if (n % 2 == 1) {
-            cout << "YES" << endl;
+            cout << "YES" << endl;  // n is odd
         } else {
-            bool flag = false;
-            long long x = 2;
-            
-            while (n >= x) {
-                if (n == x) {
-                    flag = true;
-                    break;
-                }
-                x *= 2;
+            while (n % 2 == 0) {
+                n /= 2;
             }
             
-            if (flag) {
-                cout << "NO" << endl;
-            } else {
+            if (n > 1) {
                 cout << "YES" << endl;
+            } else {
+                cout << "NO" << endl;
             }
         }
     }
-    
-    return 0;
 }
